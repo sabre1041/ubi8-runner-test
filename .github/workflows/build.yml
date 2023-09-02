@@ -13,6 +13,8 @@
     
         - name: Build Image
           uses: redhat-actions/buildah-build@v2
+          env:
+            BUILDAH_ISOLATION: chroot
           with:
             image: test-image
             containerfiles: Dockerfile
