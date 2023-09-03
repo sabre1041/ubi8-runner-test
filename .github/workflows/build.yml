@@ -10,6 +10,13 @@
     
         steps:
         - uses: actions/checkout@v3
+
+        - name: Debugging
+          run: | 
+            id -u
+            cat /etc/subuid
+            cat /etc/subgid
+            cat /etc/passwd
     
         - name: Build Image
           uses: redhat-actions/buildah-build@v2
