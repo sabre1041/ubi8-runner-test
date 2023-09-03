@@ -10,12 +10,6 @@
     
         steps:
         - uses: actions/checkout@v3
-
-        - name: Setup build environment
-          run: |
-            mkdir -p .config/containers
-            (echo '[storage]';echo 'driver = "vfs"') > .config/containers/storage.conf
-            buildah info
     
         - name: Build Image
           uses: redhat-actions/buildah-build@v2
@@ -24,5 +18,6 @@
           with:
             image: test-image
             containerfiles: Dockerfile
+            extra-args: --storage-driver=vfs
     
     
