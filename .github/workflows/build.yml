@@ -12,9 +12,8 @@
         - uses: actions/checkout@v3
 
         - name: Debugging
-          run: | 
-            echo "github:1001:2147483646" > /etc/subuid
-            echo "github:1001:2147483646" > /etc/subgid
+          run: |
+            id
     
         - name: Build Image
           uses: redhat-actions/buildah-build@v2
