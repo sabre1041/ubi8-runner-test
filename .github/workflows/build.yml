@@ -13,10 +13,8 @@
 
         - name: Debugging
           run: | 
-            id -u
-            cat /etc/subuid
-            cat /etc/subgid
-            cat /etc/passwd
+            echo "github:1001:2147483646" > /etc/subuid
+            echo "github:1001:2147483646" > /etc/subgid
     
         - name: Build Image
           uses: redhat-actions/buildah-build@v2
