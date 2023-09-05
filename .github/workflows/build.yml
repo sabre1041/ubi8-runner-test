@@ -10,12 +10,6 @@
     
         steps:
         - uses: actions/checkout@v3
-
-        # - name: Testing Image Build
-        #   run: |
-        #     id
-        #     buildah info
-        #     buildah bud -t test-image:latest .
     
         - name: Build Image
           uses: redhat-actions/buildah-build@v2
