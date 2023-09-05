@@ -11,18 +11,19 @@
         steps:
         - uses: actions/checkout@v3
 
-        - name: Debugging
+        - name: Testing Image Build
           run: |
-            echo "github:0:2147483646" > /etc/subuid
-            echo "github:0:2147483646" > /etc/subgid
+            id
+            buildah info
+            buildah bud -t test-image:latest .
     
-        - name: Build Image
-          uses: redhat-actions/buildah-build@v2
-          env:
-            BUILDAH_ISOLATION: chroot
-          with:
-            image: test-image
-            containerfiles: Dockerfile
-            extra-args: --storage-driver=vfs
+        # - name: Build Image
+        #   uses: redhat-actions/buildah-build@v2
+        #   env:
+        #     BUILDAH_ISOLATION: chroot
+        #   with:
+        #     image: test-image
+        #     containerfiles: Dockerfile
+        #     extra-args: --storage-driver=vfs
     
     
